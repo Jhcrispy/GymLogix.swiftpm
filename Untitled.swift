@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct GymView: View {
     var body: some View {
     }
 }
