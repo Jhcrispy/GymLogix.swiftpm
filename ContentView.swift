@@ -3,12 +3,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack{
-            NavigationLink(Image("Gym Logix-2"), destination: GymView())
-            Image("Gym Logix-2")
+          
         }
         VStack{
-            Shape
+            
+         Image("Gym Logix-2")
+                .resizable()
+                .frame(width: 75,height: 75)
+            
         }
+        .frame(maxWidth: .infinity)
+        .background(LinearGradient(colors: [.gray,.black], startPoint: .leading, endPoint: .top)).ignoresSafeArea()
+        VStack{
+            
+        }
+       
         Spacer()
         HStack{
             Text("Notes")
@@ -16,5 +25,10 @@ struct ContentView: View {
             Text("Progress")
             
         }
+        .font(.custom("Rustic", size:45))
+        .bold()
+        .foregroundStyle(.white)
+        .frame(maxWidth: .infinity)
+        .background(LinearGradient(colors: [.gray,.black], startPoint: .leading, endPoint: .top)).ignoresSafeArea()
     }
 }
