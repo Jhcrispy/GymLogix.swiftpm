@@ -36,7 +36,7 @@ struct IntroView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image("GymLogix")
+            Image("GymLogix 1")
                 .resizable()
                 .frame(width: 85, height: 85)
                 .cornerRadius(29)                .shadow(color:.black, radius: 11 )
@@ -55,7 +55,7 @@ struct IntroView: View {
          .bold()
                     
             }
-            
+            Spacer()
             
             Spacer()
             
