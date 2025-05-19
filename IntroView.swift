@@ -32,7 +32,14 @@ struct IntroView: View {
     @State var workout1 = "Push    Pull    Legs    Rest"
     @State var workout2 = "Fullbody    Rest    Fullbody    Rest"
     @State var workout3 = "Upper   Lower    Rest    Fullbody    Rest"
-   @State var workout4 = "Chest Triceps   Back Biceps   Shoulders Biceps   Rest"
+    @State var splitIndex = 0
+    let split = [
+        "Push    Pull    Legs    Rest",
+        "Fullbody    Rest    Fullbody    Rest",
+        "Upper   Lower    Rest    Fullbody    Rest",
+        "Chest&Tri    Back&Bi    Shoulders&Bi",
+        "Push    Calisthentics    Pull    Rest"
+    ]
     
     var body: some View {
         VStack(spacing: 20) {
@@ -42,22 +49,26 @@ struct IntroView: View {
                 .cornerRadius(29)                .shadow(color:.black, radius: 11 )
                 .padding()
             VStack{
-                Text("Exercise Today")
-                    .font(.system(size: 30, weight: .heavy))
+                Text("Split Options")
+                    .font(.system(size: 30, weight: .black))
+                    .padding()
                 
-                           Text(workout1)
+                Text(split[splitIndex])
                     .bold()
-                Text(workout2)
-         .bold()
-                Text(workout3)
-         .bold()
-                Text(workout4)
-         .bold()
-                    
+                    .font(.system(size: 20, weight: .semibold))
+                    .padding()
+                Button(action: {
+                    splitIndex = (splitIndex + 1) % split.count
+                }, label: {
+                    Text("Switch")
+                })
+                .bold()
+                Spacer()
+                
+                Spacer()
+                
             }
-            Spacer()
-            
-            Spacer()
+            Text("BMI Calculator")
             
             TextField("Height (inches)", text: $height)
                 .frame(alignment: .center)
@@ -87,14 +98,38 @@ struct IntroView: View {
             .foregroundStyle(Color.white)
             .buttonStyle(.borderedProminent)
             
-        }
-        
-        .background(.white)
+            HStack{
+                NavigationLink(destination: TermView()){
+                    Spacer()
+                    Text("Terms")
+                        .bold()
+                }
+                    NavigationLink(destination: LogView()){
+                        Spacer()
+                        Text("Log")
+                            .bold()
+                        Spacer()
+                        
+                    }
+                    NavigationLink(destination: WorkoutView()){
+                        Text("Workouts")
+                            .bold()
+                        Spacer()
+                    }
+                }
+            }
+            
+            .background(.white)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 2))
+            .shadow(color:.black, radius: 2 )
+        }  
     }
-}
-                
-            
-            
+    
+    
+    
+
     
     
 
