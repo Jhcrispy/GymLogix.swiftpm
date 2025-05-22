@@ -43,24 +43,28 @@ struct IntroView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image("GymLogix 1")
+            Image("GymLogx")
                 .resizable()
                 .frame(width: 85, height: 85)
                 .cornerRadius(29)                .shadow(color:.black, radius: 11 )
                 .padding()
             VStack{
                 Text("Split Options")
+                    .foregroundStyle(.white)
                     .font(.system(size: 30, weight: .black))
+                
                     .padding()
                 
                 Text(split[splitIndex])
                     .bold()
                     .font(.system(size: 20, weight: .semibold))
+                    .foregroundStyle(.white)
                     .padding()
                 Button(action: {
                     splitIndex = (splitIndex + 1) % split.count
                 }, label: {
                     Text("Switch")
+                    
                 })
                 .bold()
                 Spacer()
@@ -69,6 +73,8 @@ struct IntroView: View {
                 
             }
             Text("BMI Calculator")
+                .foregroundStyle(.white)
+                .bold()
             
             TextField("Height (inches)", text: $height)
                 .frame(alignment: .center)
@@ -87,44 +93,52 @@ struct IntroView: View {
                 Text("BMI: \(String(format: "%.1f", bmi))")
             }
             
-            Button("Calculate") {
+            Button("Calculate"){
                 if let h = Double(height), let w = Double(weight) {
                     bmi = (w / (h * h)) * 703
+                       
                     
                 }
             }
             .padding(.bottom, 20.0)
             .frame(height: nil)
-            .foregroundStyle(Color.white)
             .buttonStyle(.borderedProminent)
+            .foregroundStyle(.white)
+           
             
             HStack{
                 NavigationLink(destination: TermView()){
                     Spacer()
                     Text("Terms")
+                        .foregroundStyle(.white)
                         .bold()
                 }
                     NavigationLink(destination: LogView()){
                         Spacer()
                         Text("Log")
+                            .foregroundStyle(.white)
                             .bold()
                         Spacer()
                         
                     }
                     NavigationLink(destination: WorkoutView()){
                         Text("Workouts")
+                            .foregroundStyle(.white)
                             .bold()
                         Spacer()
                     }
                 }
-            }
             
-            .background(.white)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 2))
-            .shadow(color:.black, radius: 2 )
-        }  
+            }
+        .frame(maxWidth: .infinity,maxHeight: .infinity)
+        .background(Color(red: 40/255, green: 37/255, blue: 30/255))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 0.01))
+        .shadow(color: .white, radius: 10 )
+            
+        }
+     
     }
     
     
