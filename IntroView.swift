@@ -81,6 +81,7 @@ struct IntroView: View {
                 .frame(alignment: .center)
                 .textFieldStyle(.automatic)
                 .bold()
+                .foregroundStyle(.white)
                 .keyboardType(.decimalPad)
             Text("--------------------------------------------------")
                 .frame(alignment: .center)
