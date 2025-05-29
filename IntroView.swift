@@ -79,13 +79,17 @@ struct IntroView: View {
             
             TextField("Height (inches)", text: $height)
                 .frame(alignment: .center)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.automatic)
                 .bold()
                 .keyboardType(.decimalPad)
-            
+            Text("--------------------------------------------------")
+                .frame(alignment: .center)
+                .foregroundStyle(.white)
+                .fontWeight(.black)
             TextField("Weight (lbs)", text: $weight)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.automatic)
                 .bold()
+                .foregroundStyle(.white)
                 .keyboardType(.decimalPad)
             
             
