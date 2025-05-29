@@ -15,7 +15,7 @@ struct LogView: View {
     @State var exerciseLogs: [ExerciseLog] = []
     
     var body: some View {
-        NavigationView {
+        
             VStack{
                 TextField("Exercise", text: $exerciseNameInput)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -58,14 +58,9 @@ struct LogView: View {
             }
             
         }
-        .frame(maxWidth: .infinity,maxHeight: .infinity)
-        .background(Color(red: 40/255, green: 37/255, blue: 30/255))
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth: 0.01))
-        .shadow(color: .white, radius: 10 )
+
     }
     
-}
+
 
 
