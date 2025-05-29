@@ -15,15 +15,20 @@ struct LogView: View {
     @State var exerciseLogs: [ExerciseLog] = []
     
     var body: some View {
-        
+        VStack{
+            Text("Exercise Log")
+              Spacer()
+            Spacer()
+            
             VStack{
+                Spacer()
                 TextField("Exercise", text: $exerciseNameInput)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            
+                
                 TextField("Weight (lbs)", text: $weightInput)
                     .keyboardType(.decimalPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
+                
                 
                 TextField("Reps", text: $repsInput)
                     .keyboardType(.numberPad)
@@ -40,9 +45,9 @@ struct LogView: View {
                     }
                 }
                 .padding()
-                .background(.blue)
+                .background(.gray)
                 .foregroundColor(.white)
-                .cornerRadius(29)                .shadow(color:.blue, radius: 8 )
+                .cornerRadius(29)                .shadow(color:.white, radius: 8 )
                 
                 List(exerciseLogs) { log in
                     VStack(alignment: .leading) {
@@ -54,13 +59,18 @@ struct LogView: View {
                     
                 }
                 .padding()
-                .navigationTitle("Exercise Log")
             }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .background(Color(red: 40/255, green: 37/255, blue: 30/255))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 0.01))
+            .shadow(color: .white, radius: 10 )
             
         }
-
+        
     }
     
-
+}
 
 
